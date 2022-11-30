@@ -27,3 +27,4 @@ jobs:
         destination_repo: 'geraldoantonio/lab-02'
         user_email: 'junior.bimbo@gmail.com'
         user_name: 'geraldoantonio'
+        use_rsync: '-avhn --delete'
