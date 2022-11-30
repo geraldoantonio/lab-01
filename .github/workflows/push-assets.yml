@@ -23,7 +23,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'app/public/**'
+        source_file: 'app/public/*'
         destination_repo: 'geraldoantonio/lab-02'
         user_email: 'mail@example.com'
         user_name: 'Bot'
