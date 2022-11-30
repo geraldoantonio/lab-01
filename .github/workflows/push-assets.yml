@@ -22,14 +22,9 @@ jobs:
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-
-    - name: Resolve possible conflicts ${{ github.event.client_payload.ReleaseBranchName }} with main
-      run: |
-        git config --global --add safe.directory /tmp/tmp.OfEfLL
-
       with:
         source_file: 'app/public/'
         destination_repo: 'geraldoantonio/lab-02'
         user_email: 'junior.bimbo@gmail.com'
         user_name: 'geraldoantonio'
-        use_rsync: '-avhn --delete'
+        use_rsync: '-avhn --delete-after'
