@@ -1,0 +1,31 @@
+name: Push Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - app/public/**
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get current date
+      id: date
+      run: |
+        echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_STATE
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Push assets files
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'app/public/**'
+        destination_repo: 'geraldoantonio/lab-02'
+        destination_folder: '/'
+        user_email: 'mail@example.com'
+        user_name: 'Bot'
+        commit_message: assets update ${{ env.date }}
