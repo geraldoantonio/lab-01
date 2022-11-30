@@ -25,7 +25,6 @@ jobs:
       with:
         source_file: 'app/public/**'
         destination_repo: 'geraldoantonio/lab-02'
-        destination_folder: '/'
         user_email: 'mail@example.com'
         user_name: 'Bot'
         commit_message: assets update ${{ env.date }}
